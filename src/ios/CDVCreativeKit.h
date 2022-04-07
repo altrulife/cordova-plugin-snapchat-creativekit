@@ -2,7 +2,9 @@
 
 @interface CDVCreativeKit : CDVPlugin {}
 
-- (void)shareToCameraPreview:(CDVInvokedUrlCommand*)command;
 - (void)sharePhoto:(CDVInvokedUrlCommand*)command;
+- (void)shareVideo:(CDVInvokedUrlCommand*)command;
+- (void)shareToCameraPreview:(CDVInvokedUrlCommand*)command;
+- (void)shareLensToCameraPreview:(CDVInvokedUrlCommand*)command;
 
 @end
