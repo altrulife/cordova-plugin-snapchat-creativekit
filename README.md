@@ -1,6 +1,8 @@
 # cordova-plugin-snapchat-creativekit
 Cordova plugin for Snapchat CreativeKit
 
+Creative Kit SDK Docs: https://docs.snap.com/snap-kit/creative-kit/overview
+
 ## Supported platforms
 - iOS
 
@@ -9,22 +11,22 @@ Cordova plugin for Snapchat CreativeKit
 cordova plugin add https://github.com/altrulife/cordova-plugin-snapchat-creativekit
 ```
 
-## Add SCSDKRedirectUrl to config.xml
+## (Required) Add SCSDKClientId to config.xml so Snapchat will allowed to be opened with your Share data
 ```
-    <platform name="ios">
-        <config-file target="*-Info.plist" parent="SCSDKClientId">
-            <string>YOUR_CLIENT_ID</string>
-        </config-file>
-    </platform>
+<platform name="ios">
+    <config-file target="*-Info.plist" parent="SCSDKClientId">
+        <string>YOUR_CLIENT_ID</string>
+    </config-file>
+</platform>
 ```
 
-## (Optional)) add SCSDKRedirectUrl to config.xml to handle errors from Snapchat
+## (Optional) Add SCSDKRedirectUrl to config.xml to handle errors from Snapchat
 ```
-    <platform name="ios">
-        <config-file target="*-Info.plist" parent="SCSDKRedirectUrl">
-            <string>YOUR_REDIRECT_URL</string>
-        </config-file>
-    </platform>
+<platform name="ios">
+    <config-file target="*-Info.plist" parent="SCSDKRedirectUrl">
+        <string>YOUR_REDIRECT_URL</string>
+    </config-file>
+</platform>
 ```
 
 ## Usage from JS
@@ -41,27 +43,27 @@ Media Size and Length Restrictions
 - Videos must be MP4 or MOV
 
 ```
-    cordova.plugins.creativekit.sharePhoto(
-        {
-            content: {
-                uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
-            },
-            attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
-            caption: 'Hi I am a caption bar on Snapchat',
-            sticker: {
-                uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
-                // not implemented
-                // width: 300,
-                // height: 300,
-                // posX: 0.5,
-                // posY: 0.6,
-                // rotationDegreesInClockwise: 0,
-                // isAnimated: false,
-            },
+cordova.plugins.creativekit.sharePhoto(
+    {
+        content: {
+            uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
         },
-        () => console.log('success'),
-        () => console.log('error')
-    );
+        attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
+        caption: 'Hi I am a caption bar on Snapchat',
+        sticker: {
+            uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
+            // not implemented
+            // width: 300,
+            // height: 300,
+            // posX: 0.5,
+            // posY: 0.6,
+            // rotationDegreesInClockwise: 0,
+            // isAnimated: false,
+        },
+    },
+    () => console.log('success'),
+    () => console.log('error')
+);
 ```
 
 ### shareToCameraPreview
@@ -77,24 +79,24 @@ Limitations
 - Universal links are not supported
 
 ```
-    cordova.plugins.creativekit.shareToCameraPreview(
-        {
-            attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
-            caption: 'Hi I am a caption bar on Snapchat',
-            sticker: {
-                uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
-                // not implemented
-                // width: 300,
-                // height: 300,
-                // posX: 0.5,
-                // posY: 0.6,
-                // rotationDegreesInClockwise: 0,
-                // isAnimated: false,
-            },
+cordova.plugins.creativekit.shareToCameraPreview(
+    {
+        attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
+        caption: 'Hi I am a caption bar on Snapchat',
+        sticker: {
+            uri: 'uri string', // ie: data:image/png;base64, iVBORw0KGgoAAAANSU...
+            // not implemented
+            // width: 300,
+            // height: 300,
+            // posX: 0.5,
+            // posY: 0.6,
+            // rotationDegreesInClockwise: 0,
+            // isAnimated: false,
         },
-        () => console.log('success'),
-        () => console.log('error')
-    );
+    },
+    () => console.log('success'),
+    () => console.log('error')
+);
 ```
 
 ### shareLensToCameraPreview (not implemented yet)
@@ -108,18 +110,18 @@ Conditions
 - Launch data can be added in key-value pairs. The key must be a string and the value can be an int, float, double, string, or an array of any one of those types
 
 ```
-    cordova.plugins.creativekit.shareLensToCameraPreview(
-        {
-            lensUUID: 'uuid string',
-            launchData: {
-                hair_color: '#b76e79',
-                hint: 'lens_hint_raise_your_eyebrows',
-                // ... etc
-            },
-            attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
-            caption: 'Hi I am a caption bar on Snapchat',
+cordova.plugins.creativekit.shareLensToCameraPreview(
+    {
+        lensUUID: 'uuid string',
+        launchData: {
+            hair_color: '#b76e79',
+            hint: 'lens_hint_raise_your_eyebrows',
+            // ... etc
         },
-        () => console.log('success'),
-        () => console.log('error')
-    );
+        attachmentUrl: 'url string', // any URL to attach ie: https://www.snapchat.com
+        caption: 'Hi I am a caption bar on Snapchat',
+    },
+    () => console.log('success'),
+    () => console.log('error')
+);
 ```
