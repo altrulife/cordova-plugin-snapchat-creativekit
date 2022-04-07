@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-snapchat-creativekit" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Cordova Snapchat CreativeKit Plugin</name>
+    <description>Use SnapKit's CreativeKit SDK to make sharing to Snapchat more interactive</description>
+    <author>Jessica Wood and Bryan Hunter</author>
+    <license>MIT</license>
+    <keywords>cordova,snapchat,creativekit,snapkit</keywords>
+    <js-module src="www/creativekit.js" name="creativekit">
+        <clobbers target="cordova.plugins.creativekit" />
+    </js-module>
+    <platform name="ios">
+        <preference name="IOS_SCSDK_CREATIVE_KIT_VERSION" default="~> 1.15.0"/>
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVCreativeKit">
+                <param name="ios-package" value="CDVCreativeKit"/>
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>snapchat</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLSchemes">
+            <array>
+                <string>$PACKAGE_NAME</string>
+            </array>
+        </config-file>
+        <header-file src="src/ios/CDVCreativeKit.h" />
+        <source-file src="src/ios/CDVCreativeKit.m" />
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="SnapSDK/SCSDKCreativeKit" spec="$IOS_SCSDK_CREATIVE_KIT_VERSION"/>
+            </pods>
+        </podspec>
+    </platform>
+</plugin>

@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-snapchat-creativekit",
+  "version": "0.1.0",
+  "description": "Cordova Snapchat CreativeKit Plugin",
+  "cordova": {
+    "id": "cordova-plugin-snapchat-creativekit",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "jessicawood & bryanhunter",
+  "license": "MIT"
+}
