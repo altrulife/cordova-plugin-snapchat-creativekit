@@ -18,6 +18,8 @@
         <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
             <array>
                 <string>snapchat</string>
+                <string>bitmoji-sdk</string>
+                <string>itms-apps</string>
             </array>
         </config-file>
         <config-file target="*-Info.plist" parent="CFBundleURLSchemes">
