@@ -1,6 +1,9 @@
 {
   "name": "cordova-plugin-snapchat-creativekit",
   "version": "0.1.0",
+  "dependencies": {
+    "xcode": "^3.0.1"
+  },
   "description": "Cordova Snapchat CreativeKit Plugin",
   "cordova": {
     "id": "cordova-plugin-snapchat-creativekit",
@@ -13,5 +16,5 @@
     "cordova-ios"
   ],
   "author": "jessicawood & bryanhunter",
-  "license": "MIT"
+  "license": "Apache-2.0"
 }

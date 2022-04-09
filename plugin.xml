@@ -37,5 +37,8 @@
                 <pod name="SnapSDK/SCSDKCreativeKit" spec="$IOS_SCSDK_CREATIVE_KIT_VERSION"/>
             </pods>
         </podspec>
+        <hook src="add_or_remove_build_phase.js" type="after_plugin_add" />
+        <hook src="add_or_remove_build_phase.js" type="after_platform_add" />
+        <hook src="add_or_remove_build_phase.js" type="before_plugin_rm" />
     </platform>
 </plugin>
