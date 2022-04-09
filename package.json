@@ -4,7 +4,10 @@
   "dependencies": {
     "xcode": "^3.0.1"
   },
+  "types": "types/index.d.ts",
   "description": "Cordova Snapchat CreativeKit Plugin",
+  "repository": "altrulife/cordova-plugin-snapchat-creativekit",
+  "homepage": "https://github.com/altrulife/cordova-plugin-snapchat-creativekit#readme",
   "cordova": {
     "id": "cordova-plugin-snapchat-creativekit",
     "platforms": [
