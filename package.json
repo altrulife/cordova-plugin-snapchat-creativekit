@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-snapchat-creativekit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "xcode": "^3.0.1"
   },
