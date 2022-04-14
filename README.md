@@ -11,11 +11,23 @@ Creative Kit SDK Docs: https://docs.snap.com/snap-kit/creative-kit/overview
 cordova plugin add https://github.com/altrulife/cordova-plugin-snapchat-creativekit
 ```
 
-## (Required) Add SCSDKClientId to config.xml so Snapchat will allowed to be opened with your Share data
+## (Required) Add SCSDKClientId, LSApplicationQueriesSchemes, and CFBundleURLSchemes to config.xml so Snapchat will be allowed to be opened with your Share data
 ```
 <platform name="ios">
     <config-file target="*-Info.plist" parent="SCSDKClientId">
         <string>YOUR_CLIENT_ID</string>
+    </config-file>
+    <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+        <array>
+            <string>snapchat</string>
+            <string>bitmoji-sdk</string>
+            <string>itms-apps</string>
+        </array>
+    </config-file>
+    <config-file target="*-Info.plist" parent="CFBundleURLSchemes">
+        <array>
+            <string>$PACKAGE_NAME</string>
+        </array>
     </config-file>
 </platform>
 ```
