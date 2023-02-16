@@ -44,9 +44,13 @@ if [ "$CONFIGURATION" != "Debug" ]; then
     lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "\${EXTRACTED_ARCHS[@]}"
     rm "\${EXTRACTED_ARCHS[@]}"
 
-    echo "Replacing original executable with thinned version"
-    rm "$FRAMEWORK_EXECUTABLE_PATH"
-    mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+    # Check $FRAMEWORK_EXECUTABLE_PATH-merged (thin file) exists then replace to the original version (fat file)
+    # See: https://stackoverflow.com/questions/68356898/error-itms-90085-no-architectures-in-the-binary
+    if [ -f "$FRAMEWORK_EXECUTABLE_PATH-merged" ]; then
+      echo "Replacing original executable with thinned version"
+      rm "$FRAMEWORK_EXECUTABLE_PATH"
+      mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+    fi
 
   done
 fi
